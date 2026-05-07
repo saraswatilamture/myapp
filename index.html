@@ -1,0 +1,53 @@
+export default function FarmerFertilizerApp() {
+  const fertilizers = {
+    Rice: "Urea + DAP",
+    Wheat: "NPK 20:20:20",
+    Cotton: "Potash + Urea",
+    Sugarcane: "Nitrogen Rich Fertilizer",
+    Vegetables: "Organic Compost + NPK",
+  };
+
+  const getRecommendation = (crop) => {
+    return fertilizers[crop] || "No recommendation available";
+  };
+
+  return (
+    <div className="min-h-screen bg-green-100 flex items-center justify-center p-6">
+      <div className="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-xl">
+        <h1 className="text-4xl font-bold text-center text-green-700 mb-6">
+          Farmer Fertilizer Recommendation App
+        </h1>
+
+        <div className="space-y-4">
+          {Object.keys(fertilizers).map((crop) => (
+            <div
+              key={crop}
+              className="bg-green-50 border border-green-200 rounded-2xl p-4 hover:shadow-lg transition"
+            >
+              <h2 className="text-2xl font-semibold text-green-800">{crop}</h2>
+              <p className="text-gray-700 mt-2">
+                Recommended Fertilizer:
+              </p>
+              <p className="text-lg font-bold text-blue-700 mt-1">
+                {getRecommendation(crop)}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 bg-yellow-100 p-4 rounded-2xl border border-yellow-300">
+          <h3 className="text-xl font-semibold text-yellow-800 mb-2">
+            Features
+          </h3>
+          <ul className="list-disc list-inside text-gray-700">
+            <li>Crop-based fertilizer recommendation</li>
+            <li>Simple and user-friendly UI</li>
+            <li>Can be connected with database/API later</li>
+            <li>Useful for smart farming projects</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
