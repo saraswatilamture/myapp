@@ -1,0 +1,101 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart, Sparkles } from "lucide-react";
+
+export default function CosmeticWebsite() {
+  const products = [
+    {
+      name: "Glow Face Cream",
+      price: "₹499",
+      description: "Hydrating cream for glowing skin",
+    },
+    {
+      name: "Matte Lipstick",
+      price: "₹299",
+      description: "Long-lasting waterproof lipstick",
+    },
+    {
+      name: "Herbal Face Wash",
+      price: "₹199",
+      description: "Natural cleanser for fresh skin",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-pink-50">
+      <header className="bg-pink-600 text-white p-6 shadow-lg">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-8 h-8" />
+            <h1 className="text-3xl font-bold">Beauty Glow Cosmetics</h1>
+          </div>
+
+          <Button className="rounded-2xl bg-white text-pink-600 hover:bg-pink-100">
+            <ShoppingCart className="mr-2 w-5 h-5" />
+            Cart
+          </Button>
+        </div>
+      </header>
+
+      <section className="text-center py-20 px-6 bg-gradient-to-r from-pink-200 to-rose-100">
+        <h2 className="text-5xl font-bold text-pink-700 mb-4">
+          Enhance Your Natural Beauty
+        </h2>
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          Discover premium cosmetic products designed for healthy,
+          radiant, and beautiful skin.
+        </p>
+
+        <Button className="mt-8 rounded-2xl text-lg px-8 py-6 bg-pink-600 hover:bg-pink-700">
+          Shop Now
+        </Button>
+      </section>
+
+      <section className="max-w-7xl mx-auto py-16 px-6">
+        <h3 className="text-4xl font-bold text-center text-pink-700 mb-12">
+          Our Products
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {products.map((product, index) => (
+            <Card
+              key={index}
+              className="rounded-3xl shadow-xl hover:scale-105 transition-transform"
+            >
+              <CardContent className="p-6">
+                <div className="h-52 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-500 text-2xl font-bold">
+                  Product Image
+                </div>
+
+                <h4 className="text-2xl font-bold text-gray-800 mt-6">
+                  {product.name}
+                </h4>
+
+                <p className="text-gray-600 mt-2">
+                  {product.description}
+                </p>
+
+                <div className="flex justify-between items-center mt-6">
+                  <span className="text-2xl font-bold text-pink-700">
+                    {product.price}
+                  </span>
+
+                  <Button className="rounded-2xl bg-pink-600 hover:bg-pink-700">
+                    Buy Now
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <footer className="bg-pink-600 text-white text-center py-6 mt-10">
+        <p className="text-lg">
+          © 2026 Beauty Glow Cosmetics. All Rights Reserved.
+        </p>
+      </footer>
+    </div>
+  );
+}
+
